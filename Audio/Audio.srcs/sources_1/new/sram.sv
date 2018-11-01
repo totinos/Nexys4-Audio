@@ -16,7 +16,9 @@ module SRAM #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, DEPTH=256) (
     logic [DATA_WIDTH-1:0] memory [0:DEPTH-1];
     
     always_ff @(posedge clk) begin
-        memory[write_addr] <= input_data;
+        if (write_enable) begin
+            memory[write_addr] <= input_data;
+        end
         output_data <= memory[read_addr];
     end
 endmodule
