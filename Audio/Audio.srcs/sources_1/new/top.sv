@@ -20,39 +20,71 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module top(
-    input CLK100MHZ,
+module top #(parameter ADC_WIDTH=12) (
+    input clk,
+    input logic reset,
+    input logic ready,
     
-//XADC guitar input
-    input vauxp3,
-    input vauxn3,
+    //XADC guitar input
+    input logic vauxp3,
+    input logic vauxn3,
 
-    output AUD_PWM,
-    output AUD_SD
+    output logic AUD_PWM,
+    output logic AUD_SD
     );
 
-    wire [15:0] chipTemp;
-    wire [15:0] aux_in;
-    wire data_flag =1;
-    reg [15:0] PWM;
+    logic clk_25MHz;
 
-    AnalogXADC xadc(
+    logic [ADC_WIDTH-1:0] aux_in;
+    logic [ADC_WIDTH-1:0] aux_out;
+
+    logic [ADC_WIDTH-1:0] chipTemp;
+    logic [ADC_WIDTH-1:0] PWM;
+    
+    // Instantiate a clock divider
+    clk_div #(.NUM_DIVISIONS(8)) cdiv (
+        .clk_in(clk),
+        .reset(reset),
+        .clk_out(clk_25MHz)
+    );
+
+    // Instantiate an ADC to sample audio input
+    AnalogXADC xadc (
         .aux_data(aux_in),  
         .temp_data(chipTemp),
         .vauxp3(vauxp3),
         .vauxn3(vauxn3),
-        .CLK100MHZ(CLK100MHZ)
+        .CLK100MHZ(clk)
     );
     
-    always@(posedge(CLK100MHZ))begin 
-        if (data_flag==1)begin
-            PWM<=aux_in;
-            end
+    // Instantiate a module to delay the audio signal
+    delay #(.DELAY(17)) top_delay (
+        .clk(clk_25MHz),
+        .reset(reset),
+        .ready(ready),
+        .audio_in(aux_in),
+        .audio_out(aux_out)
+    );
+    
+    // Connect delay module output to PWM 
+    always_ff @(posedge clk) begin
+        PWM <= aux_out;
     end
+    
+    // Enable the audio output port
     assign AUD_SD = 1'b1;
     
+    /*
     pwm_module pwm(
-        .clk(CLK100MHZ),
+        .clk(clk),
+        .PWM_in(PWM),
+        .PWM_out(AUD_PWM)
+    );
+    */
+    
+    pwm #(.WIDTH(ADC_WIDTH)) pwm_0 (
+        .clk(clk),
+        .reset(reset),
         .PWM_in(PWM),
         .PWM_out(AUD_PWM)
     );

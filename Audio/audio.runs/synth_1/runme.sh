@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/sbrow109/Desktop/Nexys4-Audio/Audio/audio.runs/synth_1'
+HD_PWD='C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log SRAM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SRAM.tcl
+EAStep vivado -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl

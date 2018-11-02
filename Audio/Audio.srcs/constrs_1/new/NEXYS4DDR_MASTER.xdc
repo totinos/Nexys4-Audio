@@ -141,8 +141,8 @@ set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 PULLDOWN true } [get_
 
 ##Pmod Header JXADC
 
-set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVCMOS33     } [get_ports { vauxn3 }]; #IO_L9N_T1_DQS_AD3N_15 Sch=xa_n[1]
-set_property -dict { PACKAGE_PIN A13   IOSTANDARD LVCMOS33     } [get_ports { vauxp3 }]; #IO_L9P_T1_DQS_AD3P_15 Sch=xa_p[1]
+set_property -dict {PACKAGE_PIN A14 IOSTANDARD LVCMOS33} [get_ports vauxn3]
+set_property -dict {PACKAGE_PIN A13 IOSTANDARD LVCMOS33} [get_ports vauxp3]
 #set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVCMOS33     } [get_ports { vauxn10}]; #IO_L8N_T1_AD10N_15 Sch=xa_n[2]
 #set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVCMOS33     } [get_ports { vauxp10 }]; #IO_L8P_T1_AD10P_15 Sch=xa_p[2]
 #set_property -dict { PACKAGE_PIN B17   IOSTANDARD LVCMOS33     } [get_ports { vauxn2 }]; #IO_L7N_T1_AD2N_15 Sch=xa_n[3]
@@ -210,8 +210,8 @@ set_property -dict { PACKAGE_PIN A13   IOSTANDARD LVCMOS33     } [get_ports { va
 
 #PWM Audio Amplifier
 
-set_property -dict { PACKAGE_PIN A11   IOSTANDARD LVCMOS33 } [get_ports { AUD_PWM }]; #IO_L4N_T0_15 Sch=aud_pwm
-set_property -dict { PACKAGE_PIN D12   IOSTANDARD LVCMOS33 } [get_ports { AUD_SD }]; #IO_L6P_T0_15 Sch=aud_sd
+set_property -dict {PACKAGE_PIN A11 IOSTANDARD LVCMOS33} [get_ports AUD_PWM]
+set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports AUD_SD]
 
 
 ##USB-RS232 Interface
@@ -251,3 +251,10 @@ set_property -dict { PACKAGE_PIN D12   IOSTANDARD LVCMOS33 } [get_ports { AUD_SD
 #set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { QSPI_DQ[3] }]; #IO_L2N_T0_D03_14 Sch=qspi_dq[3]
 #set_property -dict { PACKAGE_PIN L13   IOSTANDARD LVCMOS33 } [get_ports { QSPI_CSN }]; #IO_L6P_T0_FCS_B_14 Sch=qspi_csn
 
+
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports ready]
+set_property IOSTANDARD LVCMOS33 [get_ports reset]
+set_property PACKAGE_PIN E3 [get_ports clk]
+set_property PACKAGE_PIN J15 [get_ports reset]
+set_property PACKAGE_PIN L16 [get_ports ready]

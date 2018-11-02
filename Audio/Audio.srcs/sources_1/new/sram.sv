@@ -3,7 +3,7 @@
 /**********************************************************/
 /*  A module to implement dual port synchronous BRAM      */
 /**********************************************************/
-module SRAM #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, DEPTH=256) (
+module SRAM #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, LOG_DEPTH=8) (
     input logic clk,
     input logic write_enable,
     input logic [ADDR_WIDTH-1:0] read_addr,
@@ -13,7 +13,7 @@ module SRAM #(parameter ADDR_WIDTH=8, DATA_WIDTH=8, DEPTH=256) (
     // INCLUDE WRITE ENABLE AND/OR READ_ENABLE?????????????????????????????????????????????????
     );
     
-    logic [DATA_WIDTH-1:0] memory [0:DEPTH-1];
+    logic [DATA_WIDTH-1:0] memory [0:(1<<(LOG_DEPTH-1))];
     
     always_ff @(posedge clk) begin
         if (write_enable) begin
