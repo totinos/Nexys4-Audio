@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4.1 (win64) Build 2117270 Tue Jan 30 15:32:00 MST 2018
-| Date         : Thu Nov  1 20:23:44 2018
+| Date         : Mon Nov  5 15:47:12 2018
 | Host         : COM1490 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     8 |
-| Unused register locations in slices containing registers |    26 |
+| Number of unique control sets                            |     9 |
+| Unused register locations in slices containing registers |    32 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,41 +33,39 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              21 |            9 |
+| No           | No                    | No                     |              47 |           15 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              25 |            8 |
-| Yes          | No                    | No                     |              16 |            5 |
+| No           | Yes                   | No                     |              22 |            6 |
+| Yes          | No                    | No                     |              39 |           15 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              48 |           15 |
+| Yes          | Yes                   | No                     |              84 |           28 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+-----------------+--------------------------------+------------------+------------------+----------------+
-|   Clock Signal  |          Enable Signal         | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+-----------------+--------------------------------+------------------+------------------+----------------+
-|  clk_25MHz_BUFG |                                | reset_IBUF       |                2 |              4 |
-|  clk_IBUF_BUFG  | xadc/aux_data[11]_i_1_n_0      |                  |                2 |              8 |
-|  clk_25MHz_BUFG | top_delay/delay_in[11]_i_1_n_0 |                  |                3 |              8 |
-|  clk_25MHz_BUFG |                                |                  |                5 |              9 |
-|  clk_IBUF_BUFG  | pwm_0/new_pwm_0                | reset_IBUF       |                2 |             11 |
-|  clk_IBUF_BUFG  |                                |                  |                4 |             12 |
-|  clk_IBUF_BUFG  |                                | reset_IBUF       |                6 |             21 |
-|  clk_25MHz_BUFG | ready_IBUF                     | reset_IBUF       |               13 |             37 |
-+-----------------+--------------------------------+------------------+------------------+----------------+
++----------------------------+---------------------------------+------------------+------------------+----------------+
+|        Clock Signal        |          Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------------------+---------------------------------+------------------+------------------+----------------+
+|  read_addr_reg[16]_i_2_n_0 | top_reverb/delay_in[12]_i_1_n_0 |                  |                8 |             12 |
+|  clk_IBUF_BUFG             | xadc/aux_data[15]_i_1_n_0       |                  |                3 |             12 |
+|  clk_IBUF_BUFG             | pwm_0/new_pwm_0                 | reset_IBUF       |                4 |             12 |
+|  read_addr_reg[16]_i_2_n_0 | top_delay/delay_in[15]_i_1_n_0  |                  |                4 |             15 |
+|  clk_IBUF_BUFG             |                                 |                  |                7 |             22 |
+|  clk_IBUF_BUFG             |                                 | reset_IBUF       |                6 |             22 |
+|  read_addr_reg[16]_i_2_n_0 |                                 |                  |                8 |             25 |
+|  read_addr_reg[16]_i_2_n_0 | ready3_IBUF                     | reset_IBUF       |               12 |             34 |
+|  read_addr_reg[16]_i_2_n_0 | ready2_IBUF                     | reset_IBUF       |               12 |             38 |
++----------------------------+---------------------------------+------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 4      |                     1 |
-| 8      |                     2 |
-| 9      |                     1 |
-| 11     |                     1 |
-| 12     |                     1 |
-| 16+    |                     2 |
+| 12     |                     3 |
+| 15     |                     1 |
+| 16+    |                     5 |
 +--------+-----------------------+
 
 

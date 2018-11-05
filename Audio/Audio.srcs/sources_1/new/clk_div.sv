@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module clk_div #(parameter NUM_DIVISIONS=1) (
+module clk_div #(parameter NUM_DIVISIONS=8) (
     input logic clk_in,
     input logic reset,
     output logic clk_out

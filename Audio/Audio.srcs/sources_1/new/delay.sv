@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 
-module delay #(parameter N=12, DELAY=16) (
+module delay #(parameter N=16, DELAY=16) (
     input logic clk,
+    input logic clk2,
     input logic reset,
     input logic ready,
     input logic [N-1:0] audio_in,
@@ -17,7 +18,7 @@ module delay #(parameter N=12, DELAY=16) (
     
     // Instantiate a 2-port RAM module
     SRAM #(.DATA_WIDTH(N), .ADDR_WIDTH(DELAY-1), .LOG_DEPTH(DELAY)) block_ram (
-        .clk(clk),
+        .clk(clk2),
         .write_enable(ready),
         .read_addr(read_addr),
         .write_addr(write_addr),

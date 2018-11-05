@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
-module pwm #(parameter WIDTH=10) (
+module pwm #(parameter WIDTH=16) (
     input logic clk,
     input logic reset,
     input logic [WIDTH-1:0] PWM_in, 
     output logic PWM_out
     );
 
-    logic [10:0] new_pwm;
-    logic [10:0] PWM_ramp;
+    logic [11:0] new_pwm;
+    logic [11:0] PWM_ramp;
     
     always_ff @(posedge clk) begin
         

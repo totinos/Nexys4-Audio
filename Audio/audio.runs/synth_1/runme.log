@@ -14,42 +14,59 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7888 
-WARNING: [Synth 8-2507] parameter declaration becomes local in delay with formal parameter declaration list [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:11]
+INFO: Helper process launched with PID 9424 
+WARNING: [Synth 8-2507] parameter declaration becomes local in delay with formal parameter declaration list [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:12]
+WARNING: [Synth 8-2507] parameter declaration becomes local in reverb with formal parameter declaration list [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:12]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 360.340 ; gain = 106.191
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 360.246 ; gain = 106.148
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:23]
-	Parameter ADC_WIDTH bound to: 12 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:3]
+	Parameter ADC_WIDTH bound to: 16 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'clk_div' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/clk_div.sv:3]
 	Parameter NUM_DIVISIONS bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clk_div' (1#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/clk_div.sv:3]
 INFO: [Synth 8-638] synthesizing module 'AnalogXADC' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/AnalogXADC.v:23]
-INFO: [Synth 8-638] synthesizing module 'xadc_wiz_0' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-1756-COM1490/realtime/xadc_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'xadc_wiz_0' (2#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-1756-COM1490/realtime/xadc_wiz_0_stub.v:5]
+INFO: [Synth 8-638] synthesizing module 'xadc_wiz_0' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-3848-COM1490/realtime/xadc_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'xadc_wiz_0' (2#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-3848-COM1490/realtime/xadc_wiz_0_stub.v:5]
 INFO: [Synth 8-256] done synthesizing module 'AnalogXADC' (3#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/AnalogXADC.v:23]
-WARNING: [Synth 8-689] width (12) of port connection 'aux_data' does not match port width (16) of module 'AnalogXADC' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:53]
-WARNING: [Synth 8-689] width (12) of port connection 'temp_data' does not match port width (16) of module 'AnalogXADC' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:54]
+INFO: [Synth 8-638] synthesizing module 'disto' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/dist.sv:2]
+	Parameter N bound to: 16 - type: integer 
+	Parameter threshold bound to: 1000 - type: integer 
+	Parameter thresholdLow bound to: 150 - type: integer 
+	Parameter distortionThreshHigh bound to: 2000 - type: integer 
+	Parameter distortionThreshLow bound to: 200 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'disto' (4#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/dist.sv:2]
 INFO: [Synth 8-638] synthesizing module 'delay' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:3]
-	Parameter N bound to: 12 - type: integer 
+	Parameter N bound to: 16 - type: integer 
 	Parameter DELAY bound to: 17 - type: integer 
 	Parameter ADDRESS_LIMIT bound to: 131071 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/sram.sv:6]
 	Parameter ADDR_WIDTH bound to: 16 - type: integer 
-	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
 	Parameter LOG_DEPTH bound to: 17 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'SRAM' (4#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/sram.sv:6]
-WARNING: [Synth 8-689] width (17) of port connection 'read_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:22]
-WARNING: [Synth 8-689] width (17) of port connection 'write_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:23]
-INFO: [Synth 8-256] done synthesizing module 'delay' (5#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:3]
+INFO: [Synth 8-256] done synthesizing module 'SRAM' (5#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/sram.sv:6]
+WARNING: [Synth 8-689] width (17) of port connection 'read_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:23]
+WARNING: [Synth 8-689] width (17) of port connection 'write_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:24]
+INFO: [Synth 8-256] done synthesizing module 'delay' (6#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:3]
+INFO: [Synth 8-638] synthesizing module 'reverb' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:3]
+	Parameter N bound to: 16 - type: integer 
+	Parameter DELAY bound to: 17 - type: integer 
+	Parameter ADDRESS_LIMIT bound to: 131071 - type: integer 
+WARNING: [Synth 8-689] width (17) of port connection 'read_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:23]
+WARNING: [Synth 8-689] width (17) of port connection 'write_addr' does not match port width (16) of module 'SRAM' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:24]
+INFO: [Synth 8-256] done synthesizing module 'reverb' (7#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:3]
 INFO: [Synth 8-638] synthesizing module 'pwm' [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv:3]
-	Parameter WIDTH bound to: 12 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'pwm' (6#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv:3]
-INFO: [Synth 8-256] done synthesizing module 'top' (7#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pwm' (8#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv:3]
+INFO: [Synth 8-256] done synthesizing module 'top' (9#1) [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:3]
 WARNING: [Synth 8-3917] design top has port AUD_SD driven by constant 1
-WARNING: [Synth 8-3331] design pwm has unconnected port PWM_in[11]
+WARNING: [Synth 8-3331] design pwm has unconnected port PWM_in[15]
+WARNING: [Synth 8-3331] design pwm has unconnected port PWM_in[14]
+WARNING: [Synth 8-3331] design pwm has unconnected port PWM_in[13]
+WARNING: [Synth 8-3331] design pwm has unconnected port PWM_in[12]
+WARNING: [Synth 8-3331] design disto has unconnected port reset
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 406.637 ; gain = 152.488
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 412.719 ; gain = 158.621
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -59,49 +76,17 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 406.637 ; gain = 152.488
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 412.719 ; gain = 158.621
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-1756-COM1490/dcp1/xadc_wiz_0_in_context.xdc] for cell 'xadc/XLXI_7'
-Finished Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-1756-COM1490/dcp1/xadc_wiz_0_in_context.xdc] for cell 'xadc/XLXI_7'
+Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-3848-COM1490/dcp1/xadc_wiz_0_in_context.xdc] for cell 'xadc/XLXI_7'
+Finished Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/.Xil/Vivado-3848-COM1490/dcp1/xadc_wiz_0_in_context.xdc] for cell 'xadc/XLXI_7'
 Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc]
-WARNING: [Vivado 12-584] No ports matched 'CLK100MHZ'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:7]
-WARNING: [Vivado 12-584] No ports matched 'CLK100MHZ'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:8]
-WARNING: [Vivado 12-584] No ports matched 'LED[0]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:33]
-WARNING: [Vivado 12-584] No ports matched 'LED[1]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:34]
-WARNING: [Vivado 12-584] No ports matched 'LED[2]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:35]
-WARNING: [Vivado 12-584] No ports matched 'LED[3]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:36]
-WARNING: [Vivado 12-584] No ports matched 'LED[4]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:37]
-WARNING: [Vivado 12-584] No ports matched 'LED[5]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:38]
-WARNING: [Vivado 12-584] No ports matched 'LED[6]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:39]
-WARNING: [Vivado 12-584] No ports matched 'LED[7]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:40]
-WARNING: [Vivado 12-584] No ports matched 'LED16_R'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:52]
-WARNING: [Vivado 12-584] No ports matched 'LED17_G'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:54]
-WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:60]
-WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:61]
-WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:62]
-WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:63]
-WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:64]
-WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:65]
-WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:66]
-WARNING: [Vivado 12-584] No ports matched 'an[0]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:70]
-WARNING: [Vivado 12-584] No ports matched 'an[1]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:71]
-WARNING: [Vivado 12-584] No ports matched 'an[2]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:72]
-WARNING: [Vivado 12-584] No ports matched 'an[3]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:73]
-WARNING: [Vivado 12-584] No ports matched 'an[4]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:74]
-WARNING: [Vivado 12-584] No ports matched 'an[5]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:75]
-WARNING: [Vivado 12-584] No ports matched 'an[6]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:76]
-WARNING: [Vivado 12-584] No ports matched 'an[7]'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:77]
-WARNING: [Vivado 12-584] No ports matched 'rstn'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:82]
-WARNING: [Vivado 12-584] No ports matched 'BTNC'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:84]
-WARNING: [Vivado 12-584] No ports matched 'BTNL'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:86]
-WARNING: [Vivado 12-584] No ports matched 'BTNR'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:87]
-WARNING: [Vivado 12-584] No ports matched 'BTND'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:88]
-WARNING: [Vivado 12-584] No ports matched 'JC1'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:120]
+WARNING: [Vivado 12-584] No ports matched 'JC1'. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc:6]
 Finished Parsing XDC File [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/constrs_1/new/NEXYS4DDR_MASTER.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
@@ -113,23 +98,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 737.559 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 739.602 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 737.559 ; gain = 483.410
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 739.602 ; gain = 485.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 737.559 ; gain = 483.410
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 739.602 ; gain = 485.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for xadc/XLXI_7. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 737.559 ; gain = 483.410
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 739.602 ; gain = 485.504
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "clk_out" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element count_reg was removed.  [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/clk_div.sv:14]
@@ -139,7 +124,7 @@ INFO: [Synth 8-5546] ROM "temp_data" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5546] ROM "new_pwm" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-6014] Unused sequential element PWM_ramp_reg was removed.  [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv:17]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:29 . Memory (MB): peak = 737.559 ; gain = 483.410
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 739.602 ; gain = 485.504
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -152,25 +137,23 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     17 Bit       Adders := 2     
-	   2 Input     12 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 4     
+	   2 Input     16 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
-	               17 Bit    Registers := 2     
-	               16 Bit    Registers := 2     
-	               12 Bit    Registers := 4     
-	               11 Bit    Registers := 2     
+	               17 Bit    Registers := 4     
+	               16 Bit    Registers := 10    
+	               12 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 +---RAMs : 
-	             768K Bit         RAMs := 1     
+	            1024K Bit         RAMs := 2     
 +---Muxes : 
-	   2 Input     17 Bit        Muxes := 2     
-	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     17 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 9     
 	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -181,7 +164,7 @@ Hierarchical RTL Component report
 Module top 
 Detailed RTL Component Info : 
 +---Registers : 
-	               12 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
 Module clk_div 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -199,30 +182,46 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
+Module disto 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 5     
 Module SRAM 
 Detailed RTL Component Info : 
 +---Registers : 
-	               12 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
 +---RAMs : 
-	             768K Bit         RAMs := 1     
+	            1024K Bit         RAMs := 1     
 Module delay 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     17 Bit       Adders := 2     
-	   2 Input     12 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
 +---Registers : 
 	               17 Bit    Registers := 2     
-	               12 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input     17 Bit        Muxes := 2     
-	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+Module reverb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 1     
 Module pwm 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 1     
 +---Registers : 
-	               11 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
@@ -242,9 +241,8 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element xadc/temp_data_reg was removed.  [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/AnalogXADC.v:75]
-WARNING: [Synth 8-3936] Found unconnected internal register 'PWM_reg' and it is trimmed from '12' to '11' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:71]
-WARNING: [Synth 8-3936] Found unconnected internal register 'top_delay/audio_out_reg' and it is trimmed from '12' to '11' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv:32]
-WARNING: [Synth 8-3936] Found unconnected internal register 'xadc/aux_data_reg' and it is trimmed from '16' to '12' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/AnalogXADC.v:70]
+WARNING: [Synth 8-3936] Found unconnected internal register 'PWM_reg' and it is trimmed from '16' to '12' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'top_reverb/audio_out_reg' and it is trimmed from '16' to '12' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv:33]
 INFO: [Synth 8-5546] ROM "cdiv/clk_out" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "xadc/Address_in" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "xadc/aux_data" won't be mapped to RAM because it is too sparse
@@ -253,33 +251,52 @@ INFO: [Synth 8-5546] ROM "pwm_0/new_pwm" won't be mapped to RAM because it is to
 WARNING: [Synth 8-6014] Unused sequential element cdiv/count_reg was removed.  [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/clk_div.sv:14]
 WARNING: [Synth 8-6014] Unused sequential element pwm_0/PWM_ramp_reg was removed.  [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv:17]
 WARNING: [Synth 8-3917] design top has port AUD_SD driven by constant 1
-INFO: [Synth 8-4652] Swapped enable and write-enable on 12 RAM instances of RAM top_delay/block_ram/memory_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 16 RAM instances of RAM top_delay/block_ram/memory_reg to conserve power
+WARNING: [Synth 8-3936] Found unconnected internal register 'top_reverb/block_ram/output_data_reg' and it is trimmed from '16' to '13' bits. [C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/sram.sv:22]
+INFO: [Synth 8-4652] Swapped enable and write-enable on 13 RAM instances of RAM top_reverb/block_ram/memory_reg to conserve power
 INFO: [Synth 8-3886] merging instance 'xadc/Address_in_reg[0]' (FDE) to 'xadc/Address_in_reg[1]'
 INFO: [Synth 8-3886] merging instance 'xadc/Address_in_reg[5]' (FDE) to 'xadc/Address_in_reg[2]'
 INFO: [Synth 8-3886] merging instance 'xadc/Address_in_reg[6]' (FDE) to 'xadc/Address_in_reg[2]'
 INFO: [Synth 8-3886] merging instance 'xadc/Address_in_reg[2]' (FDE) to 'xadc/Address_in_reg[3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\xadc/Address_in_reg[3] )
 INFO: [Synth 8-3886] merging instance 'xadc/Address_in_reg[4]' (FDE) to 'xadc/Address_in_reg[1]'
-INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[0]' (FDE) to 'xadc/aux_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[1]' (FDE) to 'xadc/aux_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[2]' (FDE) to 'xadc/aux_data_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\xadc/aux_data_reg[3] )
+INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[3]' (FDE) to 'xadc/aux_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[0]' (FDE) to 'xadc/aux_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'xadc/aux_data_reg[1]' (FDE) to 'xadc/aux_data_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\xadc/aux_data_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\top_disto/audio_out_reg[0] )
+INFO: [Synth 8-3886] merging instance 'top_disto/audio_out_reg[1]' (FD) to 'top_disto/audio_out_reg[2]'
 WARNING: [Synth 8-3332] Sequential element (xadc/Address_in_reg[3]) is unused and will be removed from module top.
-WARNING: [Synth 8-3332] Sequential element (xadc/aux_data_reg[3]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (xadc/aux_data_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_disto/audio_out_reg[0]) is unused and will be removed from module top.
 WARNING: [Synth 8-3332] Sequential element (top_delay/delay_in_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_delay/audio_out_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_delay/audio_out_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_delay/audio_out_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_reverb/delay_in_reg[15]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_reverb/delay_in_reg[14]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_reverb/delay_in_reg[13]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (top_reverb/delay_in_reg[0]) is unused and will be removed from module top.
+INFO: [Synth 8-3886] merging instance 'top_disto/audio_out_reg[15]' (FD) to 'top_disto/audio_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'top_disto/audio_out_reg[14]' (FD) to 'top_disto/audio_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'top_disto/audio_out_reg[13]' (FD) to 'top_disto/audio_out_reg[11]'
+INFO: [Synth 8-3886] merging instance 'top_disto/audio_out_reg[12]' (FD) to 'top_disto/audio_out_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\top_disto/audio_out_reg[11] )
+WARNING: [Synth 8-3332] Sequential element (top_disto/audio_out_reg[11]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:31 . Memory (MB): peak = 737.559 ; gain = 483.410
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 739.602 ; gain = 485.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Preliminary Mapping  Report (see note below)
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|SRAM:       | memory_reg | 64 K x 12(READ_FIRST)  | W |   | 64 K x 12(WRITE_FIRST) |   | R | Port A and B     | 0      | 24     | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SRAM:       | memory_reg                      | 64 K x 16(READ_FIRST)  | W |   | 64 K x 16(WRITE_FIRST) |   | R | Port A and B     | 0      | 32     | 
+|top         | top_reverb/block_ram/memory_reg | 64 K x 13(READ_FIRST)  | W |   | 64 K x 13(WRITE_FIRST) |   | R | Port A and B     | 0      | 26     | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The tale above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 ---------------------------------------------------------------------------------
@@ -295,24 +312,25 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:42 . Memory (MB): peak = 750.313 ; gain = 496.164
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 753.246 ; gain = 499.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:42 . Memory (MB): peak = 750.563 ; gain = 496.414
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 753.777 ; gain = 499.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Final Mapping  Report
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|SRAM:       | memory_reg | 64 K x 12(READ_FIRST)  | W |   | 64 K x 12(WRITE_FIRST) |   | R | Port A and B     | 0      | 24     | 
-+------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SRAM:       | memory_reg                      | 64 K x 16(READ_FIRST)  | W |   | 64 K x 16(WRITE_FIRST) |   | R | Port A and B     | 0      | 32     | 
+|top         | top_reverb/block_ram/memory_reg | 64 K x 13(READ_FIRST)  | W |   | 64 K x 13(WRITE_FIRST) |   | R | Port A and B     | 0      | 26     | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
@@ -337,8 +355,24 @@ INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_
 INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_9 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_10 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_11 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_12 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_13 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_14 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_delay/block_ram/memory_reg_1_15 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_4 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_5 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_6 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_7 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_8 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_9 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_10 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_11 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance top_reverb/block_ram/memory_reg_1_12 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:42 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -362,7 +396,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -375,7 +409,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -387,25 +421,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -424,18 +458,18 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |xadc_wiz_0 |     1|
 |2     |BUFG       |     2|
-|3     |CARRY4     |    14|
+|3     |CARRY4     |    31|
 |4     |LUT1       |     2|
-|5     |LUT2       |    13|
-|6     |LUT3       |    12|
-|7     |LUT4       |    32|
+|5     |LUT2       |    17|
+|6     |LUT3       |    17|
+|7     |LUT4       |    57|
 |8     |LUT5       |     4|
-|9     |LUT6       |    40|
-|10    |RAMB36E1   |    11|
-|11    |RAMB36E1_1 |    11|
-|12    |FDRE       |   107|
-|13    |FDSE       |     1|
-|14    |IBUF       |     5|
+|9     |LUT6       |    87|
+|10    |RAMB36E1   |    27|
+|11    |RAMB36E1_1 |    27|
+|12    |FDRE       |   190|
+|13    |FDSE       |     2|
+|14    |IBUF       |     7|
 |15    |OBUF       |     2|
 +------+-----------+------+
 
@@ -443,21 +477,24 @@ Report Instance Areas:
 +------+--------------+-----------+------+
 |      |Instance      |Module     |Cells |
 +------+--------------+-----------+------+
-|1     |top           |           |   282|
+|1     |top           |           |   498|
 |2     |  cdiv        |clk_div    |    20|
-|3     |  pwm_0       |pwm        |    52|
-|4     |  top_delay   |delay      |   143|
-|5     |    block_ram |SRAM       |    34|
-|6     |  xadc        |AnalogXADC |    47|
+|3     |  pwm_0       |pwm        |    46|
+|4     |  top_delay   |delay      |   190|
+|5     |    block_ram |SRAM_0     |    54|
+|6     |  top_disto   |disto      |    22|
+|7     |  top_reverb  |reverb     |   136|
+|8     |    block_ram |SRAM       |    24|
+|9     |  xadc        |AnalogXADC |    61|
 +------+--------------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:43 . Memory (MB): peak = 771.730 ; gain = 517.582
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 771.730 ; gain = 186.660
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 771.730 ; gain = 517.582
+Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 777.992 ; gain = 197.012
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 777.992 ; gain = 523.895
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 41 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 92 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -465,10 +502,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-58 Infos, 53 Warnings, 0 Critical Warnings and 0 Errors encountered.
+86 Infos, 35 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:49 . Memory (MB): peak = 771.750 ; gain = 529.066
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 777.992 ; gain = 535.359
 INFO: [Common 17-1381] The checkpoint 'C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 771.750 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  1 20:22:51 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 777.992 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  5 15:46:17 2018...

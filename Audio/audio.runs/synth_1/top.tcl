@@ -35,7 +35,9 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/AnalogXADC.v
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/clk_div.sv
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/delay.sv
+  C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/dist.sv
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/pwm.sv
+  C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/reverb.sv
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/sram.sv
   C:/Users/sraby1/Documents/GitHub/Nexys4-Audio/Audio/audio.srcs/sources_1/new/top.sv
 }

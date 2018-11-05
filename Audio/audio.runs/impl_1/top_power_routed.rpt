@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4.1 (win64) Build 2117270 Tue Jan 30 15:32:00 MST 2018
-| Date             : Thu Nov  1 20:24:21 2018
+| Date             : Mon Nov  5 15:47:48 2018
 | Host             : COM1490 running 64-bit Service Pack 1  (build 7601)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.986        |
-| Design Power Budget (W)  | Unspecified* |
-| Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.875        |
-| Device Static (W)        | 0.111        |
-| Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 71.4         |
-| Junction Temperature (C) | 38.6         |
-| Confidence Level         | Low          |
-| Setting File             | ---          |
-| Simulation Activity File | ---          |
-| Design Nets Matched      | NA           |
-+--------------------------+--------------+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 15.943 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 15.546                           |
+| Device Static (W)        | 0.398                            |
+| Effective TJA (C/W)      | 4.6                              |
+| Max Ambient (C)          | 12.3                             |
+| Junction Temperature (C) | 97.7                             |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.645 |      288 |       --- |             --- |
-|   LUT as Logic |     0.537 |      130 |     63400 |            0.21 |
-|   Register     |     0.059 |      110 |    126800 |            0.09 |
-|   CARRY4       |     0.043 |       14 |     15850 |            0.09 |
+| Slice Logic    |     1.130 |      510 |       --- |             --- |
+|   LUT as Logic |     0.891 |      247 |     63400 |            0.39 |
+|   CARRY4       |     0.117 |       31 |     15850 |            0.20 |
+|   Register     |     0.115 |      192 |    126800 |            0.15 |
 |   BUFG         |     0.006 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       15 |       --- |             --- |
-| Signals        |     1.954 |      263 |       --- |             --- |
-| Block RAM      |     0.108 |       22 |       135 |           16.30 |
-| I/O            |     0.047 |        7 |       210 |            3.33 |
+|   Others       |     0.000 |       20 |       --- |             --- |
+| Signals        |     4.945 |      499 |       --- |             --- |
+| Block RAM      |     8.471 |       54 |       135 |           40.00 |
+| I/O            |     0.879 |        9 |       210 |            4.29 |
 | XADC           |     0.121 |        1 |       --- |             --- |
-| Static Power   |     0.111 |          |           |                 |
-| Total          |     2.986 |          |           |                 |
+| Static Power   |     0.398 |          |           |                 |
+| Total          |    15.943 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.768 |       2.742 |      0.026 |
-| Vccaux    |       1.800 |     0.020 |       0.001 |      0.019 |
-| Vcco33    |       3.300 |     0.014 |       0.010 |      0.004 |
+| Vccint    |       1.000 |    14.156 |      13.909 |      0.247 |
+| Vccaux    |       1.800 |     0.079 |       0.032 |      0.048 |
+| Vcco33    |       3.300 |     0.248 |       0.244 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.010 |       0.009 |      0.001 |
+| Vccbram   |       1.000 |     0.700 |       0.685 |      0.015 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.070 |       0.050 |      0.020 |
@@ -140,13 +140,16 @@ Table of Contents
 +---------------+-----------+
 | Name          | Power (W) |
 +---------------+-----------+
-| top           |     2.875 |
-|   cdiv        |     0.122 |
-|   pwm_0       |     0.174 |
-|   top_delay   |     2.242 |
-|     block_ram |     0.458 |
-|   xadc        |     0.205 |
-|     XLXI_7    |     0.135 |
+| top           |    15.546 |
+|   cdiv        |     0.118 |
+|   pwm_0       |     0.108 |
+|   top_delay   |     8.187 |
+|     block_ram |     5.192 |
+|   top_disto   |     0.077 |
+|   top_reverb  |     5.771 |
+|     block_ram |     4.021 |
+|   xadc        |     0.206 |
+|     XLXI_7    |     0.141 |
 +---------------+-----------+
 
 
