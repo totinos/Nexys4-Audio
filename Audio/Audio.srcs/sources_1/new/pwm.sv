@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module pwm #(parameter WIDTH=16) (
+module pwm #(parameter WIDTH=12) (
     input logic clk,
     input logic reset,
     input logic [WIDTH-1:0] PWM_in, 

@@ -1,5 +1,5 @@
 
-module disto #(parameter N=16, threshold = 1000, thresholdLow = 150, distortionThreshHigh = 2000, distortionThreshLow = 200) (
+module disto #(parameter N=12, threshold = 1500, thresholdLow = 100, distortionThreshHigh = 3975, distortionThreshLow = 121) (
                     input logic clk,
                     input logic reset,
                     input logic ready,
@@ -11,12 +11,9 @@ module disto #(parameter N=16, threshold = 1000, thresholdLow = 150, distortionT
 always @(posedge clk) begin
     if (ready) begin
         if (audio_in > distortionThreshHigh) audio_out <= distortionThreshHigh;
-        else if (audio_in < distortionThreshLow) audio_out <= distortionThreshLow;
-        else audio_out <= audio_in;
+        if (audio_in < distortionThreshLow) audio_out <= distortionThreshLow;
+        if (audio_in <= distortionThreshHigh && audio_in >= distortionThreshLow) audio_out <= audio_in;
     end
-    else if (audio_in > threshold) audio_out <= threshold;
-    else if (audio_in < thresholdLow) audio_out <= thresholdLow;
     else audio_out <= audio_in;
-
 end
 endmodule

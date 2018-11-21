@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module delay #(parameter N=16, DELAY=16) (
+module delay #(parameter N=12, DELAY=16) (
     input logic clk,
     input logic clk2,
     input logic reset,
@@ -9,7 +9,7 @@ module delay #(parameter N=16, DELAY=16) (
     output logic [N-1:0] audio_out
     );
     
-    parameter ADDRESS_LIMIT = (1 << DELAY) - 1;
+    int ADDRESS_LIMIT = (1 << DELAY) - 1;
     
     logic [N-1:0] delay_in;
     logic [N-1:0] delay_out;
