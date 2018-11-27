@@ -1,5 +1,8 @@
 `timescale 1ns / 1ps
 
+/**********************************************************/
+/*  A module to implement a simple logic clock divider.   */
+/**********************************************************/
 module clk_div #(parameter NUM_DIVISIONS=8) (
     input logic clk_in,
     input logic reset,

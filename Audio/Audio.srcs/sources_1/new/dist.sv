@@ -1,5 +1,5 @@
 
-module disto #(parameter N=12, threshold = 1500, thresholdLow = 100, distortionThreshHigh = 3975, distortionThreshLow = 121) (
+module disto #(parameter N=12, threshold = 1500, thresholdLow = 100, distortionThreshHigh = 3000, distortionThreshLow = 10) (
                     input logic clk,
                     input logic reset,
                     input logic ready,

@@ -1,8 +1,13 @@
 `timescale 1ns / 1ps
 
-module delay #(parameter N=12, DELAY=16) (
-    input logic clk,
-    input logic clk2,
+/**********************************************************/
+/*  A module to implement delay by storing audio samples  */
+/*  in memory and playing them back with a reduced        */
+/*  amplitude (this produces an "echo" effect).           */
+/**********************************************************/
+module delay #(parameter N=12, DELAY=16) (  
+    input logic clk_100MHz,
+    input logic clk_delay,    
     input logic reset,
     input logic ready,
     input logic [N-1:0] audio_in,
@@ -17,8 +22,8 @@ module delay #(parameter N=12, DELAY=16) (
     logic [DELAY-1:0] read_addr;
     
     // Instantiate a 2-port RAM module
-    SRAM #(.DATA_WIDTH(N), .ADDR_WIDTH(DELAY-1), .LOG_DEPTH(DELAY)) block_ram (
-        .clk(clk2),
+    SRAM #(.DATA_WIDTH(N), .ADDR_WIDTH(DELAY), .LOG_DEPTH(DELAY)) block_ram (
+        .clk(clk_100MHz),
         .write_enable(ready),
         .read_addr(read_addr),
         .write_addr(write_addr),
@@ -26,7 +31,7 @@ module delay #(parameter N=12, DELAY=16) (
         .output_data(delay_out)
     );
     
-    always_ff @(posedge clk) begin
+    always_ff @(posedge clk_delay) begin
         
         // On reset signal, reset
         if (reset) begin

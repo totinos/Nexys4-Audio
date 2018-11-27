@@ -1,5 +1,9 @@
 `timescale 1ns / 1ps
 
+/**********************************************************/
+/*  A module to drive the audio output by using a pulse   */
+/*  width modulated signal.                               */
+/**********************************************************/
 module pwm #(parameter WIDTH=12) (
     input logic clk,
     input logic reset,
@@ -7,8 +11,8 @@ module pwm #(parameter WIDTH=12) (
     output logic PWM_out
     );
 
-    logic [11:0] new_pwm;
-    logic [11:0] PWM_ramp;
+    logic [WIDTH-1:0] new_pwm;
+    logic [WIDTH-1:0] PWM_ramp;
     
     always_ff @(posedge clk) begin
         

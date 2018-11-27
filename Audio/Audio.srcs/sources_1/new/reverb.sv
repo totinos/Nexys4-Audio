@@ -1,8 +1,13 @@
 `timescale 1ns / 1ps
 
+/**********************************************************/
+/*  A module to implement a looper by storing separate    */
+/*  audio samples in Block RAM and playing them back      */
+/*  sequentially.                                         */
+/**********************************************************/
 module reverb #(parameter N=12, DELAY=16) (
-    input logic clk,
-    input logic clk2,
+    input logic clk_100MHz,
+    input logic clk_loop,
     input logic reset,
     input logic ready,
     input logic [N-1:0] audio_in,
@@ -10,21 +15,21 @@ module reverb #(parameter N=12, DELAY=16) (
     output logic ready_internal_out
     );
     
-    int ADDRESS_LIMIT = (1 << DELAY) - 1;
+    int ADDRESS_LIMIT = (1 << (DELAY-1)) - 1;
     
     logic [N-1:0] loop_in;
     logic [N-1:0] loop_out;
     logic [DELAY-1:0] write_addr;
     logic [DELAY-1:0] read_addr;
-    logic readyInternal;
+    logic ready_internal;
     logic rising_edge;
     logic falling_edge;
-    logic readyReg;
+    logic ready_reg;
     
     // Instantiate a 2-port RAM module
-    SRAM #(.DATA_WIDTH(N), .ADDR_WIDTH(DELAY-1), .LOG_DEPTH(DELAY)) block_ram (
-        .clk(clk2),
-        .write_enable(readyInternal),
+    SRAM #(.DATA_WIDTH(N), .ADDR_WIDTH(DELAY), .LOG_DEPTH(DELAY)) block_ram (
+        .clk(clk_loop),
+        .write_enable(ready_internal),
         .read_addr(read_addr),
         .write_addr(write_addr),
         .input_data(loop_in),
@@ -32,35 +37,35 @@ module reverb #(parameter N=12, DELAY=16) (
     );
     
     // A rising/falling edge detector
-    always_ff @(posedge clk) begin
-        readyReg <= ready;
+    always_ff @(posedge clk_loop) begin
+        ready_reg <= ready;
         
         // Reset the edge detector
         if (reset) begin
-            readyReg <= 0;
+            ready_reg <= 0;
             rising_edge <= 0;
             falling_edge <= 0;
         end
         
         // Detect edges
         else begin
-            if (ready & (!readyReg)) rising_edge <= 1;
+            if (ready & (!ready_reg)) rising_edge <= 1;
             else rising_edge <= 0;
                 
-            if ((!ready) & readyReg) falling_edge <= 1;
+            if ((!ready) & ready_reg) falling_edge <= 1;
             else falling_edge <= 0;
         end
     end
     
-    always_ff @(posedge clk) begin
+    always_ff @(posedge clk_loop) begin
         
         // On reset signal, reset
         if (reset) begin
-            audio_out       <= audio_in;
-            loop_in         <= audio_in;
-            write_addr      <= 0;
-            read_addr       <= 1;
-            readyInternal   <= 0;
+            audio_out <= audio_in;
+            loop_in <= audio_in;
+            write_addr <= 0;
+            read_addr <= 1;
+            ready_internal <= 0;
             ready_internal_out <= 0;
         end
         
@@ -69,28 +74,27 @@ module reverb #(parameter N=12, DELAY=16) (
         
             // Setup on rising and falling edges
             if (rising_edge) begin
-                write_addr      <= 0;
-                readyInternal   <= 1;
+                write_addr <= 0;
+                ready_internal <= 1;
                 ready_internal_out <= 1;
-                ADDRESS_LIMIT   <= (1 << DELAY) - 1;
+                ADDRESS_LIMIT <= (1 << (DELAY-1)) - 1;
             end
-            if (falling_edge || (write_addr == ADDRESS_LIMIT))  begin
-                readyInternal   <= 0;
+            if (falling_edge || (write_addr == ADDRESS_LIMIT-1))  begin
+                ADDRESS_LIMIT <= write_addr;
+                ready_internal <= 0;
                 ready_internal_out <= 0;
-                read_addr       <= 0;
-                write_addr      <= 0;
+                read_addr <= 0;
+                write_addr <= 0;
             end
         
             // Write loop to the Block RAM
-            if (readyInternal) begin
+            if (ready_internal) begin
             
-                // Get incoming signal sample
+                // Get incoming signal sample and increment write address
                 loop_in <= audio_in;
-                
-                // Check for write_addr overflow
                 write_addr <= write_addr + 1;
                 
-                // Sum the current and delayed signals (shift to decrease amplitude)
+                // Send the audio through
                 audio_out <= audio_in;
             end
             
